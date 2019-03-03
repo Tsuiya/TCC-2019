@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Denuncias
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-textarea placeholder="Informe seu caso"></ion-textarea><br>
+  <ion-button full (click)="getSimData()" >Enviar</ion-button> <br>
+   
+  <ion-list *ngIf="simInfo">
+      <ion-item  ><b>Código de país: </b> {{ simInfo.countryCode }}</ion-item>  
+    </ion-list>
+    <ion-card  *ngFor= "let card of cards" >
+      <ion-card-header>
+        {{card.carrierName}}
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item><b>IMEI: </b> {{ card.deviceId }} </ion-item>
+          <ion-item><b>Operadora: </b> {{ card.displayName }}</ion-item> 
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+</ion-content>
