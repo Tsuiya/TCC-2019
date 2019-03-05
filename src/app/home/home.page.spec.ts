@@ -1,11 +1,30 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, component } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Sim } from '@ionic-native/sim/ngx';
+import { AlertController } from '@ionic/angular';
 
 import { HomePage } from './home.page';
 constructor(private sim: Sim) { }
 
+@Component({
+  selector: 'home.page',
+  templateUrl: 'home.page.html',
+  styleUrls: ['./home.page.scss'],
+})
+export class AlertExample {
 
+  constructor(public alertController: AlertController) {}
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Alerta',
+      subHeader: 'Você tem certeza?',
+      message: 'Ao enviar a denúncia, será enviado alguns de seus dados para a polícia para que tenhamos certeza de que isso não é um trote',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
 
 
 this.sim.getSimInfo().then(
