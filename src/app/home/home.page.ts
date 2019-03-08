@@ -12,6 +12,7 @@ export class HomePage {
   public simInfo: any;
   public cards: any;
   constructor(private sim: Sim) {}
+  
  
   async getSimData() {
     try {
@@ -26,5 +27,5 @@ export class HomePage {
       console.log(error);
     }
   }
-
+  
 }

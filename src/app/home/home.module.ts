@@ -4,7 +4,6 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { Sim } from '@ionic-native/sim/ngx';
-
 import { HomePage } from './home.page';
 
 @NgModule({
