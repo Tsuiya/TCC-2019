@@ -2,8 +2,23 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Sim } from '@ionic-native/sim/ngx';
 import { HomePage } from './home.page';
+import { EmailComposer } from '@ionic-native/email-composer/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
+constructor(private emailComposer: EmailComposer) { }
 constructor(private sim: Sim) { }
+
+this.emailComposer.isAvailable().then((available: boolean) =>{
+  if(available) {
+    
+  }
+ });
+
+ this.geolocation.getCurrentPosition().then((resp) => {
+}).catch((error) => {
+  console.log('Error getting location', error);
+});
+
 
 this.sim.getSimInfo().then(
   (info) => console.log('Sim info: ', info),

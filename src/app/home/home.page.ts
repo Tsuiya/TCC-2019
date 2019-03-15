@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';  
-
+import { EmailComposer } from '@ionic-native/email-composer/ngx';
 import { Sim } from '@ionic-native/sim/ngx';
 import { from } from 'rxjs';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+
 
 @Component({
   selector: 'app-home',
@@ -11,8 +13,28 @@ import { from } from 'rxjs';
 export class HomePage {
   public simInfo: any;
   public cards: any;
-  constructor(private sim: Sim) {}
+  subject='Denuncia';
+  body='';
+  to='tsuiya.hachiman@gmail.com';
+  lat: any;
+  lng: any;
+  constructor(private sim: Sim, public emailComposer: EmailComposer, public geolocation: Geolocation) {} 
   
+  geolocatio(){
+    this.lat = position.coords.latitude;
+    this.lng = position.coords.longitude;
+  }
+
+  enviar(){
+    let email = {
+      to: this.to,
+      cc: [],
+      subject: this.subject,
+      body: this.body,
+      isHtml: false
+    }
+    this.emailComposer.open(email);
+  }
  
   async getSimData() {
     try {
