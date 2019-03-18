@@ -16,19 +16,12 @@ export class HomePage {
   subject='Denuncia';
   body='';
   to='tsuiya.hachiman@gmail.com';
-  lat: any;
-  lng: any;
   constructor(private sim: Sim, public emailComposer: EmailComposer, public geolocation: Geolocation) {} 
   
-  geolocatio(){
-    this.lat = position.coords.latitude;
-    this.lng = position.coords.longitude;
-  }
 
   enviar(){
     let email = {
       to: this.to,
-      cc: [],
       subject: this.subject,
       body: this.body,
       isHtml: false

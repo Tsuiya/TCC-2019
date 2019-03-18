@@ -9,11 +9,13 @@
 <ion-content padding>
   <div padding>
     <ion-item>
-      <br><ion-input [(ngModel)]="mensagem" type="text" placeholder="Escreva uma mensagem..."></ion-input>
+      <br><ion-input [(ngModel)]="body" type="text" name="mensagem" placeholder="Escreva uma mensagem..."></ion-input>
     </ion-item>
   </div>
-  <br>
-  <ion-button (click)="getSimData()" (click)="enviar()" (click)="geolocation()" >Enviar</ion-button> <br>
+  <br>  
+  <ion-item>
+  <ion-button type="submit" (click)="getSimData()" (click)="enviar()" >Enviar</ion-button> <br>
+  </ion-item>
   <ion-list *ngIf="simInfo">
       <ion-item  ><b>Código de país: </b> {{ simInfo.countryCode }}</ion-item>  
     </ion-list>
