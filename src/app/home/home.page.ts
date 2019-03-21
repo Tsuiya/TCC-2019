@@ -16,7 +16,7 @@ export class HomePage {
   subject='Denuncia';
   body='';
   to='tsuiya.hachiman@gmail.com';
-  constructor(private sim: Sim, public emailComposer: EmailComposer, public geolocation: Geolocation) {} 
+  constructor(private sim: Sim, private emailComposer: EmailComposer) {} 
   
 
   enviar(){
